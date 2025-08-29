@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <h1>QR Code Generator</h1>
+    <p>Create QR codes instantly for your links, text, or contacts.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button onclick="showForm('url')">URL</button>
+      <button onclick="showForm('text')">Text</button>
+      <button onclick="showForm('phone')">Mobile Number</button>
+      <button onclick="showForm('email')">Email</button>
+      <button onclick="showForm('contact')">Contact</button>
+    </nav>
+
+    <!-- Forms -->
+    <section id="form-container">
+      <!-- URL form -->
+      <div class="form" id="url-form">
+        <input type="url" id="urlInput" 
+          placeholder="Enter URL (http:// or https://)" required>
+        <small id="urlError" style="color:red; display:none;">⚠ Please enter a valid URL</small>
+        <button onclick="generateQR('url')">Generate QR</button>
+      </div>
+
+      <!-- Text form -->
+      <div class="form" id="text-form" style="display:none;">
+        <textarea id="textInput" placeholder="Enter text"></textarea>
+        <button onclick="generateQR('text')">Generate QR</button>
+      </div>
+
+      <!-- Phone form -->
+      <div class="form" id="phone-form" style="display:none;">
+        <input type="text" id="phoneName" placeholder="Enter Name">
+        <input type="text" id="phoneNumber" placeholder="Enter Mobile Number">
+        <button onclick="generateQR('phone')">Generate QR</button>
+      </div>
+
+      <!-- Email form -->
+      <div class="form" id="email-form" style="display:none;">
+        <input type="text" id="emailInput" placeholder="Enter Email">
+        <button onclick="generateQR('email')">Generate QR</button>
+      </div>
+
+      <!-- Contact form -->
+      <div class="form" id="contact-form" style="display:none;">
+        <input type="text" id="contactName" placeholder="Name">
+        <input type="text" id="contactPhone" placeholder="Phone">
+        <input type="text" id="contactEmail" placeholder="Email">
+        <button onclick="generateQR('contact')">Generate QR</button>
+      </div>
+    </section>
+
+    <!-- QR Code Output -->
+    <section id="qrcode-container">
+      <div id="qrcode"></div>
+      <button id="downloadBtn" style="display:none;" onclick="downloadQR()">Download QR</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© 2025 QR Code Generator | Designed for simplicity & speed | Created By Deep Mistry</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
