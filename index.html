@@ -21,15 +21,14 @@
       <button onclick="showForm('text')">Text</button>
       <button onclick="showForm('phone')">Mobile Number</button>
       <button onclick="showForm('email')">Email</button>
-      <button onclick="showForm('contact')">Contact</button>
+      <button onclick="showForm('whatsapp')">WhatsApp</button>
     </nav>
 
     <!-- Forms -->
     <section id="form-container">
       <!-- URL form -->
       <div class="form" id="url-form">
-        <input type="url" id="urlInput" 
-          placeholder="Enter URL" required>
+        <input type="url" id="urlInput" placeholder="Enter URL" required>
         <small id="urlError" style="color:red; display:none;">⚠ Please enter a valid URL</small>
         <button onclick="generateQR('url')">Generate QR</button>
       </div>
@@ -53,12 +52,10 @@
         <button onclick="generateQR('email')">Generate QR</button>
       </div>
 
-      <!-- Contact form -->
-      <div class="form" id="contact-form" style="display:none;">
-        <input type="text" id="contactName" placeholder="Name">
-        <input type="text" id="contactPhone" placeholder="Phone">
-        <input type="text" id="contactEmail" placeholder="Email">
-        <button onclick="generateQR('contact')">Generate QR</button>
+      <!-- WhatsApp form -->
+      <div class="form" id="whatsapp-form" style="display:none;">
+        <input type="text" id="waNumber" placeholder="Enter WhatsApp Number with Country Code (e.g., 919876543210)">
+        <button onclick="generateQR('whatsapp')">Generate QR</button>
       </div>
     </section>
 
