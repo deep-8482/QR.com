@@ -1,4 +1,3 @@
-
 function showForm(type) {
   // Hide all forms
   document.querySelectorAll(".form").forEach(form => {
@@ -23,17 +22,16 @@ function generateQR(type) {
   } else if (type === "phone") {
     let name = document.getElementById("phoneName").value;
     let number = document.getElementById("phoneNumber").value;
-    qrData = `Name: ${name},
-Phone: ${number}`;
+    qrData = `${name}, Phone: ${number}`;
   } else if (type === "email") {
     qrData = document.getElementById("emailInput").value;
-  } else if (type === "contact") {
-    let name = document.getElementById("contactName").value;
-    let phone = document.getElementById("contactPhone").value;
-    let email = document.getElementById("contactEmail").value;
-    qrData = `Name: ${name},
-Phone: ${phone},
-Email: ${email}`;
+  } else if (type === "whatsapp") {
+    let number = document.getElementById("waNumber").value.trim();
+    if (number === "") {
+      alert("Please enter a WhatsApp number with country code (e.g., 919876543210)");
+      return;
+    }
+    qrData = `https://wa.me/${number}`;
   }
 
   // Clear old QR
@@ -73,7 +71,7 @@ Email: ${email}`;
   ctx.lineWidth = 4;
   ctx.strokeRect(2, 2, canvas.width - 4, canvas.height - 4);
 
-  // ✅ Add brand text inside QR bottom-right
+  // ✅ Add brand text
   ctx.font = "bold 14px Arial";
   ctx.fillStyle = "#000000";
   ctx.textAlign = "right";
