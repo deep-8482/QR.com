@@ -23,14 +23,17 @@ function generateQR(type) {
   } else if (type === "phone") {
     let name = document.getElementById("phoneName").value;
     let number = document.getElementById("phoneNumber").value;
-    qrData = `Name: ${name}, Phone: ${number}`;
+    qrData = `Name: ${name},
+Phone: ${number}`;
   } else if (type === "email") {
     qrData = document.getElementById("emailInput").value;
   } else if (type === "contact") {
     let name = document.getElementById("contactName").value;
     let phone = document.getElementById("contactPhone").value;
     let email = document.getElementById("contactEmail").value;
-    qrData = `Name: ${name}, Phone: ${phone}, Email: ${email}`;
+    qrData = `Name: ${name},
+Phone: ${phone},
+Email: ${email}`;
   }
 
   // Clear old QR
